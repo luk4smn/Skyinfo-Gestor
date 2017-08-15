@@ -381,17 +381,18 @@ public class CadastroDeClientes extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jTextFieldEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextFieldBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldCep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel20)
-                            .addComponent(jComboBoxCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButtonAddCidade)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jTextFieldUF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jTextFieldBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextFieldCep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel12)
+                                .addComponent(jLabel20)
+                                .addComponent(jComboBoxCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButtonAddCidade)))))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
@@ -548,7 +549,7 @@ public class CadastroDeClientes extends javax.swing.JFrame {
         jTextFieldIMail.setText("");
         jTextFieldCep.setText("");
         jTextArea1.setText("");
-        jTextFieldNomeFantasia.setText("");       
+        jTextFieldNomeFantasia.setText("");
 
         flag = 1;
     }//GEN-LAST:event_jButtonCancelarActionPerformed
@@ -601,7 +602,6 @@ public class CadastroDeClientes extends javax.swing.JFrame {
             mod.setNomeFantasia(jTextFieldNomeFantasia.getText());
             mod.setCep(jTextFieldCep.getText());
             mod.setObs(jTextArea1.getText());
-        
 
             control.alterar(mod);
             jButtonCancelarActionPerformed(evt);
@@ -628,7 +628,7 @@ public class CadastroDeClientes extends javax.swing.JFrame {
         jTextFieldNomeFantasia.setText("");
         jTextFieldCep.setText("");
         jTextArea1.setText("");
-        
+
         jFormattedTextFieldCNPJ.setEditable(true);
         jFormattedTextFieldCPF.setEditable(true);
         jTextFieldEndereco.setEditable(true);
@@ -645,7 +645,7 @@ public class CadastroDeClientes extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAdicionarActionPerformed
 
     private void jButtonDelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDelActionPerformed
-       switch (JOptionPane.showConfirmDialog(null, "DESEJA EXLUIR O ITEM SELECIONADO ?  ")) {
+        switch (JOptionPane.showConfirmDialog(null, "DESEJA EXLUIR O ITEM SELECIONADO ?  ")) {
             case 0:
                 mod.setId(Integer.parseInt(jTextFieldCod.getText()));
                 control.excluir(mod);
@@ -751,6 +751,8 @@ public class CadastroDeClientes extends javax.swing.JFrame {
         jTextFieldEndereco.setText(model.getEndereco());
         jTextFieldIE.setText(model.getIe());
         jFormattedTextFieldCNPJ.setText(model.getCnpj());
+        jFormattedTextFieldCPF.setText(model.getCpf());
+        jTextFieldRG.setText(model.getRg());
         jTextFieldTel.setText(model.getTelefone());
         jTextFieldIMail.setText(model.getMail());
         jTextFieldUF.setText(model.getEstado());

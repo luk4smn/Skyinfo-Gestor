@@ -703,25 +703,7 @@ public class CadastroDeFornecedores extends javax.swing.JFrame {
 
         control.excluir(mod);
 
-        jButtonAdicionar.setEnabled(!false);
-        jButtonSalvar.setEnabled(!true);
-        jButtonEditar.setEnabled(false);
-        jButtonDel.setEnabled(false);
-
-        jFormattedTextFieldCNPJ.setEditable(!true);
-        jFormattedTextFieldTelefone.setEditable(!true);
-        jTextFieldUF.setEditable(!true);
-        jTextFieldIE.setEditable(!true);
-        jTextFieldBairro.setEditable(!true);
-        jTextFieldMail.setEditable(!true);
-        jTextFieldEndereco.setText("");
-        jTextFieldUF.setText("");
-        jTextFieldBairro.setText("");
-        jTextFieldMail.setText("");
-        jTextFieldNome.setText("");
-        jFormattedTextFieldTelefone.setText("");
-        jFormattedTextFieldCNPJ.setText("");
-
+        jButtonCancelarActionPerformed(evt);
         flag = 1;
     }//GEN-LAST:event_jButtonDelActionPerformed
 
