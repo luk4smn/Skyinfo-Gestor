@@ -25,8 +25,8 @@ public class ControleProduto {
         BuscaIdUnidade(mod.getUnidade());
         conexao.conexao();
         try {
-            PreparedStatement pst = conexao.conn.prepareStatement("insert into produto (nome_produto,preco_compra,preco_venda,quantidade,id_fornecedor,referencia,codebar,ncm,id_unidade)"
-                    + "values (?,?,?,?,?,?,?,?,?)");
+            PreparedStatement pst = conexao.conn.prepareStatement("insert into produto (nome_produto,preco_compra,preco_venda,quantidade,id_fornecedor,referencia,codebar,ncm,imagem,id_unidade)"
+                    + "values (?,?,?,?,?,?,?,?,?,?)");
             pst.setString(1, mod.getNome());
             pst.setFloat(2, mod.getPrecocompra());
             pst.setFloat(3, mod.getPrecovenda());
@@ -35,7 +35,8 @@ public class ControleProduto {
             pst.setString(6, mod.getReferencia());
             pst.setString(7, mod.getCodebar());
             pst.setString(8, mod.getNcm());
-            pst.setInt(9, codUnd);
+            pst.setString(9, mod.getImg());
+            pst.setInt(10, codUnd);
             pst.execute();
             JOptionPane.showMessageDialog(null, "Dados Inseridos Com Sucesso !");
 
@@ -50,7 +51,7 @@ public class ControleProduto {
         BuscaIdUnidade(mod.getUnidade());
         conexao.conexao();
         try {
-            PreparedStatement pst = conexao.conn.prepareStatement("update produto set nome_produto=?,preco_compra=?,preco_venda=?,quantidade=?,id_fornecedor=?,referencia=?,codebar=?,ncm=?,id_unidade=? where id_produto=?");
+            PreparedStatement pst = conexao.conn.prepareStatement("update produto set nome_produto=?,preco_compra=?,preco_venda=?,quantidade=?,id_fornecedor=?,referencia=?,codebar=?,ncm=?,imagem=?,id_unidade=? where id_produto=?");
             pst.setString(1, mod.getNome());
             pst.setFloat(2, mod.getPrecocompra());
             pst.setFloat(3, mod.getPrecovenda());
@@ -59,8 +60,9 @@ public class ControleProduto {
             pst.setString(6, mod.getReferencia());
             pst.setString(7, mod.getCodebar());
             pst.setString(8, mod.getNcm());
-            pst.setInt(9, codUnd);
-            pst.setInt(10, mod.getId());
+            pst.setString(9, mod.getImg());
+            pst.setInt(10, codUnd);
+            pst.setInt(11, mod.getId());
             pst.execute();
             JOptionPane.showMessageDialog(null, "Alterado com Sucesso ");
         } catch (SQLException ex) {
@@ -122,6 +124,7 @@ public class ControleProduto {
             mod.setReferencia(conexao.rs.getString("referencia"));
             mod.setCodebar(conexao.rs.getString("codebar"));
             mod.setNcm(conexao.rs.getString("ncm"));
+            mod.setImg(conexao.rs.getString("imagem"));
             mod.setUnidade(conexao.rs.getString("unidade"));
 
         } catch (SQLException ex) {
@@ -147,6 +150,7 @@ public class ControleProduto {
             mod.setReferencia(conexao.rs.getString("referencia"));
             mod.setCodebar(conexao.rs.getString("codebar"));
             mod.setNcm(conexao.rs.getString("ncm"));
+            mod.setImg(conexao.rs.getString("imagem"));
             mod.setUnidade(conexao.rs.getString("unidade"));
 
         } catch (SQLException ex) {
@@ -172,6 +176,7 @@ public class ControleProduto {
             mod.setReferencia(conexao.rs.getString("referencia"));
             mod.setCodebar(conexao.rs.getString("codebar"));
             mod.setNcm(conexao.rs.getString("ncm"));
+            mod.setImg(conexao.rs.getString("imagem"));
             mod.setUnidade(conexao.rs.getString("unidade"));
 
         } catch (SQLException ex) {
@@ -197,6 +202,7 @@ public class ControleProduto {
             mod.setReferencia(conexao.rs.getString("referencia"));
             mod.setCodebar(conexao.rs.getString("codebar"));
             mod.setNcm(conexao.rs.getString("ncm"));
+            mod.setImg(conexao.rs.getString("imagem"));
             mod.setUnidade(conexao.rs.getString("unidade"));
 
         } catch (SQLException ex) {

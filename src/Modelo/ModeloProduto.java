@@ -24,18 +24,19 @@ public class ModeloProduto {
     public void setUnidade(String unidade) {
         this.unidade = unidade;
     }
-     private int id;
-     private int quantidade;
-     private String nome;
-     private float precovenda;
-     private float precocompra ;
-     private String referencia;
-     private String codebar;
-     private String ncm;
-     private String fornecedor;
-     private String unidade;
-     private String pesquisa;
-    
+    private int id;
+    private int quantidade;
+    private String nome;
+    private float precovenda;
+    private float precocompra;
+    private String referencia;
+    private String codebar;
+    private String ncm;
+    private String fornecedor;
+    private String unidade;
+    private String pesquisa;
+    private String img;
+
     /**
      * @return the id
      */
@@ -175,5 +176,19 @@ public class ModeloProduto {
     public void setPesquisa(String pesquisa) {
         this.pesquisa = pesquisa;
     }
-    
+
+    /**
+     * @return the img
+     */
+    public String getImg() {
+        return img;
+    }
+
+    /**
+     * @param img the img to set
+     */
+    public void setImg(String img) {
+        this.img = img;
+    }
+
 }
