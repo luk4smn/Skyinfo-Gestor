@@ -374,7 +374,7 @@ public class ConsultaDeProdutos extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextFieldCod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -537,7 +537,7 @@ public class ConsultaDeProdutos extends javax.swing.JFrame {
         mod.setPesquisa(jTextFieldBuscaCodebar.getText());
         control.buscaBarraCadastro(mod);
         preencherTabela("select * from produto inner join fornecedores on produto.id_fornecedor=fornecedores.id_fornecedor "
-                + "inner join unidades on produto.id_unidade=unidades.id_unidade where codebar like '%" + jTextFieldBuscaCodebar.getText() + "%'");
+                + "inner join unidades on produto.id_unidade=unidades.id_unidade where codebar like '%" + jTextFieldBuscaCodebar.getText() + "%' order by codebar");
     }//GEN-LAST:event_jButtonBuscaCodebarActionPerformed
 
     private void jButtonBuscaReferenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscaReferenciaActionPerformed
@@ -545,7 +545,7 @@ public class ConsultaDeProdutos extends javax.swing.JFrame {
         mod.setPesquisa(jTextFieldBuscaReferencia.getText());
         control.buscaRefCadastro(mod);
         preencherTabela("select * from produto inner join fornecedores on produto.id_fornecedor=fornecedores.id_fornecedor "
-                + "inner join unidades on produto.id_unidade=unidades.id_unidade where referencia like '%" + jTextFieldBuscaReferencia.getText() + "%'");
+                + "inner join unidades on produto.id_unidade=unidades.id_unidade where referencia like '%" + jTextFieldBuscaReferencia.getText() + "%' order by referencia");
     }//GEN-LAST:event_jButtonBuscaReferenciaActionPerformed
 
     private void jButtonBuscaNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscaNomeActionPerformed
@@ -553,7 +553,7 @@ public class ConsultaDeProdutos extends javax.swing.JFrame {
         mod.setPesquisa(jTextFieldBuscaNome.getText());
         control.buscaNomeCadastro(mod);
         preencherTabela("select * from produto inner join fornecedores on produto.id_fornecedor=fornecedores.id_fornecedor "
-                + "inner join unidades on produto.id_unidade=unidades.id_unidade where nome_produto like '%" + jTextFieldBuscaNome.getText() + "%'");
+                + "inner join unidades on produto.id_unidade=unidades.id_unidade where nome_produto like '%" + jTextFieldBuscaNome.getText() + "%' order by nome_produto");
     }//GEN-LAST:event_jButtonBuscaNomeActionPerformed
 
     private void jButtonBuscaIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscaIDActionPerformed
@@ -561,7 +561,7 @@ public class ConsultaDeProdutos extends javax.swing.JFrame {
         mod.setPesquisa(String.valueOf(jTextFieldBusca3.getText()));
         control.buscaIdCadastro(mod);
         preencherTabela("select * from produto inner join fornecedores on produto.id_fornecedor=fornecedores.id_fornecedor "
-                + "inner join unidades on produto.id_unidade=unidades.id_unidade where id_produto ::text like '%" + jTextFieldBusca3.getText() + "'");
+                + "inner join unidades on produto.id_unidade=unidades.id_unidade where id_produto ::text like '%" + jTextFieldBusca3.getText() + "' order by id_produto");
     }//GEN-LAST:event_jButtonBuscaIDActionPerformed
 
     private void jButtonAlterarCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAlterarCadastroActionPerformed

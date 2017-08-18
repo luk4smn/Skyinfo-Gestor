@@ -39,7 +39,7 @@ Name: quicklaunchicon; Description: {cm:CreateQuickLaunchIcon}; GroupDescription
 Source: C:\Gestor\Skyinfo Gestor\dist\Skyinfo_Gestor.jar; DestDir: {app}; Flags: ignoreversion
 Source: C:\Gestor\Skyinfo Gestor\config.ini; DestDir: {app}; Flags: ignoreversion
 Source: C:\Gestor\Skyinfo Gestor\DB\postgresql.exe; DestDir: {app}; Flags: ignoreversion
-Source: C:\Gestor\Skyinfo Gestor\dist\Skyinfo_Gestor.jar; DestDir: {app}; Flags: ignoreversion
+Source: C:\Gestor\Skyinfo Gestor\img\*; DestDir: {app}\img; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: C:\Gestor\Skyinfo Gestor\dist\lib\*; DestDir: {app}\lib; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: C:\Gestor\Skyinfo Gestor\Relatorios\*; DestDir: {app}\Relatorios; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: C:\Gestor\Skyinfo Gestor\DB\data.backup; DestDir: {app}\data; Flags: ignoreversion recursesubdirs createallsubdirs

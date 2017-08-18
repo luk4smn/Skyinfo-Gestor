@@ -38,10 +38,10 @@ public class ControleProduto {
             pst.setString(9, mod.getImg());
             pst.setInt(10, codUnd);
             pst.execute();
-            JOptionPane.showMessageDialog(null, "Dados Inseridos Com Sucesso !");
+            JOptionPane.showMessageDialog(null, "DADOS INSERIDOS COM SUCESSO !");
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao Inserir dados" + ex);
+            JOptionPane.showMessageDialog(null, "ERRO AO INSERIR DADOS:\n" + ex);
         }
         conexao.desconecta();
     }
@@ -64,9 +64,9 @@ public class ControleProduto {
             pst.setInt(10, codUnd);
             pst.setInt(11, mod.getId());
             pst.execute();
-            JOptionPane.showMessageDialog(null, "Alterado com Sucesso ");
+            JOptionPane.showMessageDialog(null, "ALTERADO COM SUCESSO ");
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao Alterar ");
+            JOptionPane.showMessageDialog(null, "ERRO AO ALTERAR:\n"+ex);
         }
         conexao.desconecta();
     }
@@ -77,9 +77,9 @@ public class ControleProduto {
             PreparedStatement pst = conexao.conn.prepareStatement("delete from produto where id_produto=?");
             pst.setInt(1, mod.getId());
             pst.execute();
-            JOptionPane.showMessageDialog(null, "Excluído com Sucesso ");
+            JOptionPane.showMessageDialog(null, "EXCLUÍDO COM SUCESSO ");
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao Excluir ");
+            JOptionPane.showMessageDialog(null, "ERRO AO EXCLUIR:\n "+ex);
         }
         conexao.desconecta();
     }
@@ -91,7 +91,7 @@ public class ControleProduto {
             conexao.rs.first();
             codForn = conexao.rs.getInt("id_fornecedor");
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao Buscar codigo do Fornecedor !" + ex);
+            JOptionPane.showMessageDialog(null, "ERRO AO BUSCAR FORNECEDOR\n" + ex);
         }
         conexao.desconecta();
     }
@@ -103,7 +103,7 @@ public class ControleProduto {
             conexao.rs.first();
             codUnd = conexao.rs.getInt("id_unidade");
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Erro ao Buscar codigo da unidade !" + ex);
+            JOptionPane.showMessageDialog(null, "ERRO AO BUSCAR UNIDADES\n" + ex);
         }
         conexao.desconecta();
     }
