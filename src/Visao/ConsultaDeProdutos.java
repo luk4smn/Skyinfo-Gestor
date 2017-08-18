@@ -15,6 +15,7 @@ import java.util.logging.Logger;
 import javax.swing.ListSelectionModel;
 import Modelo.ModeloProduto;
 import Modelo.ModeloTabela;
+import java.awt.event.KeyEvent;
 
 /**
  *
@@ -22,6 +23,7 @@ import Modelo.ModeloTabela;
  */
 public class ConsultaDeProdutos extends javax.swing.JFrame {
 
+    java.awt.event.ActionEvent evt2;
     Conectabanco conn = new Conectabanco();
     Conectabanco connForn = new Conectabanco();
     Conectabanco connUnd = new Conectabanco();
@@ -35,9 +37,9 @@ public class ConsultaDeProdutos extends javax.swing.JFrame {
     public ConsultaDeProdutos() {
         initComponents();
         setExtendedState(MAXIMIZED_BOTH);
-        jTextFieldBusca.setDocument(new CaixaAlta());
-        jTextFieldBusca1.setDocument(new CaixaAlta());
-        jTextFieldBusca2.setDocument(new CaixaAlta());
+        jTextFieldBuscaNome.setDocument(new CaixaAlta());
+        jTextFieldBuscaReferencia.setDocument(new CaixaAlta());
+        jTextFieldBuscaCodebar.setDocument(new CaixaAlta());
         jTextFieldBusca3.setDocument(new CaixaAlta());
 
     }
@@ -54,7 +56,7 @@ public class ConsultaDeProdutos extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
-        jTextFieldBusca = new javax.swing.JTextField();
+        jTextFieldBuscaNome = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabela = new javax.swing.JTable();
         jTextFieldCod = new javax.swing.JTextField();
@@ -72,9 +74,9 @@ public class ConsultaDeProdutos extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jTextFieldPrecoVenda = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
-        jTextFieldBusca1 = new javax.swing.JTextField();
+        jTextFieldBuscaReferencia = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
-        jTextFieldBusca2 = new javax.swing.JTextField();
+        jTextFieldBuscaCodebar = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel22 = new javax.swing.JLabel();
@@ -85,12 +87,11 @@ public class ConsultaDeProdutos extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jTextFieldNCM = new javax.swing.JTextField();
         jButtonBuscaID = new javax.swing.JButton();
-        jButtonBuscaNOME = new javax.swing.JButton();
-        jButtonBuscaREFERENCIA = new javax.swing.JButton();
-        jButtonBuscaCODEBAR = new javax.swing.JButton();
+        jButtonBuscaNome = new javax.swing.JButton();
+        jButtonBuscaReferencia = new javax.swing.JButton();
+        jButtonBuscaCodebar = new javax.swing.JButton();
         jButtonAtualizar = new javax.swing.JButton();
         jTextFieldUnd = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -100,7 +101,7 @@ public class ConsultaDeProdutos extends javax.swing.JFrame {
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Principal/Imagens/icone.png")).getImage());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Produtos", 0, 0, new java.awt.Font("Calibri Light", 0, 36))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Produtos", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Calibri Light", 0, 36))); // NOI18N
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.setToolTipText("Consulta de Materiais");
 
@@ -115,9 +116,14 @@ public class ConsultaDeProdutos extends javax.swing.JFrame {
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel18.setText("Buscar: (Nome Contêm)");
 
-        jTextFieldBusca.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldBuscaNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldBuscaActionPerformed(evt);
+                jTextFieldBuscaNomeActionPerformed(evt);
+            }
+        });
+        jTextFieldBuscaNome.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFieldBuscaNomeKeyPressed(evt);
             }
         });
 
@@ -180,25 +186,35 @@ public class ConsultaDeProdutos extends javax.swing.JFrame {
         jTextFieldQtdade.setEditable(false);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel7.setText("Preço de Venda");
+        jLabel7.setText("Preço de Venda (R$)");
 
         jTextFieldPrecoVenda.setEditable(false);
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel20.setText("Buscar: (Referencia Contêm)");
 
-        jTextFieldBusca1.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldBuscaReferencia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldBusca1ActionPerformed(evt);
+                jTextFieldBuscaReferenciaActionPerformed(evt);
+            }
+        });
+        jTextFieldBuscaReferencia.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFieldBuscaReferenciaKeyPressed(evt);
             }
         });
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel21.setText("Buscar: (Código de Barras)");
 
-        jTextFieldBusca2.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldBuscaCodebar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldBusca2ActionPerformed(evt);
+                jTextFieldBuscaCodebarActionPerformed(evt);
+            }
+        });
+        jTextFieldBuscaCodebar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFieldBuscaCodebarKeyPressed(evt);
             }
         });
 
@@ -210,9 +226,14 @@ public class ConsultaDeProdutos extends javax.swing.JFrame {
                 jTextFieldBusca3ActionPerformed(evt);
             }
         });
+        jTextFieldBusca3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFieldBusca3KeyPressed(evt);
+            }
+        });
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel8.setText("Custo");
+        jLabel8.setText("Custo (R$)");
 
         jTextFieldCusto.setEditable(false);
 
@@ -237,24 +258,24 @@ public class ConsultaDeProdutos extends javax.swing.JFrame {
             }
         });
 
-        jButtonBuscaNOME.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/Icones metro/search.png"))); // NOI18N
-        jButtonBuscaNOME.addActionListener(new java.awt.event.ActionListener() {
+        jButtonBuscaNome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/Icones metro/search.png"))); // NOI18N
+        jButtonBuscaNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonBuscaNOMEActionPerformed(evt);
+                jButtonBuscaNomeActionPerformed(evt);
             }
         });
 
-        jButtonBuscaREFERENCIA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/Icones metro/search.png"))); // NOI18N
-        jButtonBuscaREFERENCIA.addActionListener(new java.awt.event.ActionListener() {
+        jButtonBuscaReferencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/Icones metro/search.png"))); // NOI18N
+        jButtonBuscaReferencia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonBuscaREFERENCIAActionPerformed(evt);
+                jButtonBuscaReferenciaActionPerformed(evt);
             }
         });
 
-        jButtonBuscaCODEBAR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/Icones metro/search.png"))); // NOI18N
-        jButtonBuscaCODEBAR.addActionListener(new java.awt.event.ActionListener() {
+        jButtonBuscaCodebar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Principal/Icones metro/search.png"))); // NOI18N
+        jButtonBuscaCodebar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonBuscaCODEBARActionPerformed(evt);
+                jButtonBuscaCodebarActionPerformed(evt);
             }
         });
 
@@ -267,13 +288,6 @@ public class ConsultaDeProdutos extends javax.swing.JFrame {
         });
 
         jTextFieldUnd.setEditable(false);
-
-        jButton2.setText("+");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel10.setText("UND");
@@ -319,9 +333,7 @@ public class ConsultaDeProdutos extends javax.swing.JFrame {
                                         .addComponent(jLabel10)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jTextFieldUnd, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButton2)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addGap(30, 30, 30)
                                         .addComponent(jLabel7)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(jTextFieldPrecoVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -349,22 +361,22 @@ public class ConsultaDeProdutos extends javax.swing.JFrame {
                                 .addGap(316, 316, 316)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jButtonBuscaID, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButtonBuscaNOME, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jButtonBuscaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel20)
                                     .addComponent(jLabel21))
                                 .addGap(24, 24, 24)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldBusca2, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldBusca1, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldBuscaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldBuscaCodebar, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTextFieldBuscaReferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextFieldBusca3, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jButtonBuscaCODEBAR, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButtonBuscaREFERENCIA, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addComponent(jButtonBuscaCodebar, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButtonBuscaReferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap(410, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -377,20 +389,20 @@ public class ConsultaDeProdutos extends javax.swing.JFrame {
                 .addGap(9, 9, 9)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextFieldBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextFieldBuscaNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButtonBuscaNOME, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButtonBuscaNome, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextFieldBusca1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextFieldBuscaReferencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButtonBuscaREFERENCIA, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButtonBuscaReferencia, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonBuscaCODEBAR, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonBuscaCodebar, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextFieldBusca2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextFieldBuscaCodebar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -427,9 +439,8 @@ public class ConsultaDeProdutos extends javax.swing.JFrame {
                         .addComponent(jTextFieldQtdade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel6)
                         .addComponent(jLabel10)
-                        .addComponent(jTextFieldUnd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton2)))
-                .addGap(18, 18, 18)
+                        .addComponent(jTextFieldUnd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -438,7 +449,7 @@ public class ConsultaDeProdutos extends javax.swing.JFrame {
                         .addComponent(jLabel5)
                         .addComponent(jTextFieldCodBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -462,9 +473,9 @@ public class ConsultaDeProdutos extends javax.swing.JFrame {
         jButtonAlterarCadastro.setEnabled(!true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jTextFieldBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBuscaActionPerformed
+    private void jTextFieldBuscaNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBuscaNomeActionPerformed
 
-    }//GEN-LAST:event_jTextFieldBuscaActionPerformed
+    }//GEN-LAST:event_jTextFieldBuscaNomeActionPerformed
 
     private void jTextFieldCodBarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCodBarActionPerformed
         // TODO add your handling code here:
@@ -474,13 +485,13 @@ public class ConsultaDeProdutos extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldFornActionPerformed
 
-    private void jTextFieldBusca1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBusca1ActionPerformed
+    private void jTextFieldBuscaReferenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBuscaReferenciaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldBusca1ActionPerformed
+    }//GEN-LAST:event_jTextFieldBuscaReferenciaActionPerformed
 
-    private void jTextFieldBusca2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBusca2ActionPerformed
+    private void jTextFieldBuscaCodebarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBuscaCodebarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldBusca2ActionPerformed
+    }//GEN-LAST:event_jTextFieldBuscaCodebarActionPerformed
 
     private void jTextFieldBusca3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBusca3ActionPerformed
         // TODO add your handling code here:
@@ -516,11 +527,11 @@ public class ConsultaDeProdutos extends javax.swing.JFrame {
             connForn.executaSQL("select * from fornecedores where id_fornecedor=" + conn.rs.getInt("id_fornecedor"));
             connForn.rs.first();
             jTextFieldForn.setText(connForn.rs.getString("nome_fornecedor"));
-            
-            connUnd.executaSQL("select * from unidades where id_unidade="+conn.rs.getInt("id_unidade"));
+
+            connUnd.executaSQL("select * from unidades where id_unidade=" + conn.rs.getInt("id_unidade"));
             connUnd.rs.first();
             jTextFieldUnd.setText(connUnd.rs.getString("unidade"));
-            
+
             jButtonAlterarCadastro.setEnabled(true);
 
             connForn.desconecta();
@@ -549,11 +560,11 @@ public class ConsultaDeProdutos extends javax.swing.JFrame {
         jTextFieldNCM.setText(model.getNcm());
 
         preencherTabela("select * from produto inner join fornecedores on produto.id_fornecedor=fornecedores.id_fornecedor "
-                + "inner join unidades on produto.id_unidade=unidades.id_unidade where id_produto ::text like '%" + jTextFieldBusca3.getText() + "'"); 
+                + "inner join unidades on produto.id_unidade=unidades.id_unidade where id_produto ::text like '%" + jTextFieldBusca3.getText() + "'");
     }//GEN-LAST:event_jButtonBuscaIDActionPerformed
 
-    private void jButtonBuscaNOMEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscaNOMEActionPerformed
-        mod.setPesquisa(jTextFieldBusca.getText());
+    private void jButtonBuscaNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscaNomeActionPerformed
+        mod.setPesquisa(jTextFieldBuscaNome.getText());
         ModeloProduto model = control.buscaNomeCadastro(mod);
 
         jTextFieldCodBar.setText(model.getCodebar());
@@ -568,12 +579,12 @@ public class ConsultaDeProdutos extends javax.swing.JFrame {
         jTextFieldNCM.setText(model.getNcm());
 
         preencherTabela("select * from produto inner join fornecedores on produto.id_fornecedor=fornecedores.id_fornecedor "
-                + "inner join unidades on produto.id_unidade=unidades.id_unidade where nome_produto like '%" + jTextFieldBusca.getText() + "%'");
+                + "inner join unidades on produto.id_unidade=unidades.id_unidade where nome_produto like '%" + jTextFieldBuscaNome.getText() + "%'");
 
-    }//GEN-LAST:event_jButtonBuscaNOMEActionPerformed
+    }//GEN-LAST:event_jButtonBuscaNomeActionPerformed
 
-    private void jButtonBuscaREFERENCIAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscaREFERENCIAActionPerformed
-        mod.setPesquisa(jTextFieldBusca1.getText());
+    private void jButtonBuscaReferenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscaReferenciaActionPerformed
+        mod.setPesquisa(jTextFieldBuscaReferencia.getText());
         ModeloProduto model = control.buscaRefCadastro(mod);
 
         jTextFieldCodBar.setText(model.getCodebar());
@@ -587,11 +598,11 @@ public class ConsultaDeProdutos extends javax.swing.JFrame {
         jTextFieldNCM.setText(model.getNcm());
 
         preencherTabela("select * from produto inner join fornecedores on produto.id_fornecedor=fornecedores.id_fornecedor "
-                + "inner join unidades on produto.id_unidade=unidades.id_unidade where referencia like '%" + jTextFieldBusca1.getText() + "%'");
-    }//GEN-LAST:event_jButtonBuscaREFERENCIAActionPerformed
+                + "inner join unidades on produto.id_unidade=unidades.id_unidade where referencia like '%" + jTextFieldBuscaReferencia.getText() + "%'");
+    }//GEN-LAST:event_jButtonBuscaReferenciaActionPerformed
 
-    private void jButtonBuscaCODEBARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscaCODEBARActionPerformed
-        mod.setPesquisa(jTextFieldBusca2.getText());
+    private void jButtonBuscaCodebarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscaCodebarActionPerformed
+        mod.setPesquisa(jTextFieldBuscaCodebar.getText());
         ModeloProduto model = control.buscaBarraCadastro(mod);
 
         jTextFieldCodBar.setText(model.getCodebar());
@@ -604,8 +615,8 @@ public class ConsultaDeProdutos extends javax.swing.JFrame {
         jTextFieldForn.setText(model.getFornecedor());
         jTextFieldNCM.setText(model.getNcm());
         preencherTabela("select * from produto inner join fornecedores on produto.id_fornecedor=fornecedores.id_fornecedor "
-                + "inner join unidades on produto.id_unidade=unidades.id_unidade where codebar like '%" + jTextFieldBusca2.getText() + "%'");
-    }//GEN-LAST:event_jButtonBuscaCODEBARActionPerformed
+                + "inner join unidades on produto.id_unidade=unidades.id_unidade where codebar like '%" + jTextFieldBuscaCodebar.getText() + "%'");
+    }//GEN-LAST:event_jButtonBuscaCodebarActionPerformed
 
     private void jButtonAtualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtualizarActionPerformed
         jTextFieldCodBar.setText("");
@@ -621,21 +632,40 @@ public class ConsultaDeProdutos extends javax.swing.JFrame {
         preencherTabela("");
     }//GEN-LAST:event_jButtonAtualizarActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       CadastroDeUnidades und = new CadastroDeUnidades();
-       und.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void jTextFieldBusca3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBusca3KeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            jButtonBuscaIDActionPerformed(evt2);
+        }
+    }//GEN-LAST:event_jTextFieldBusca3KeyPressed
+
+    private void jTextFieldBuscaNomeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBuscaNomeKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            jButtonBuscaNomeActionPerformed(evt2);
+        }
+    }//GEN-LAST:event_jTextFieldBuscaNomeKeyPressed
+
+    private void jTextFieldBuscaReferenciaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBuscaReferenciaKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            jButtonBuscaReferenciaActionPerformed(evt2);
+        }
+    }//GEN-LAST:event_jTextFieldBuscaReferenciaKeyPressed
+
+    private void jTextFieldBuscaCodebarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBuscaCodebarKeyPressed
+             if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+                 jButtonBuscaCodebarActionPerformed(evt2);
+        }
+    }//GEN-LAST:event_jTextFieldBuscaCodebarKeyPressed
 
     public void preencherTabela(String SQL) {
         ArrayList dados = new ArrayList();
 
-        String[] Colunas = new String[]{"ID", "Produto", "Referencia", "Preço de Compra", "Preço de Venda", "Quantidade","UND", "Fornecedor"};
+        String[] Colunas = new String[]{"ID", "Produto", "Referencia", "Custo (R$)", "Preço de Venda (R$)", "Quantidade", "Unidade de Venda", "Fornecedor"};
         conn.conexao();
         conn.executaSQL(SQL);
         try {
             conn.rs.first();
             do {
-                dados.add(new Object[]{conn.rs.getString("id_produto"), conn.rs.getString("nome_produto"), conn.rs.getString("referencia"), conn.rs.getString("preco_compra"), conn.rs.getString("preco_venda"), conn.rs.getString("quantidade"),conn.rs.getString("unidade"), conn.rs.getString("nome_fornecedor")});
+                dados.add(new Object[]{conn.rs.getString("id_produto"), conn.rs.getString("nome_produto"), conn.rs.getString("referencia"), conn.rs.getString("preco_compra"), conn.rs.getString("preco_venda"), conn.rs.getString("quantidade"), conn.rs.getString("unidade"), conn.rs.getString("nome_fornecedor")});
             } while (conn.rs.next());
         } catch (SQLException ex) {
         }
@@ -703,13 +733,12 @@ public class ConsultaDeProdutos extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonAlterarCadastro;
     private javax.swing.JButton jButtonAtualizar;
-    private javax.swing.JButton jButtonBuscaCODEBAR;
+    private javax.swing.JButton jButtonBuscaCodebar;
     private javax.swing.JButton jButtonBuscaID;
-    private javax.swing.JButton jButtonBuscaNOME;
-    private javax.swing.JButton jButtonBuscaREFERENCIA;
+    private javax.swing.JButton jButtonBuscaNome;
+    private javax.swing.JButton jButtonBuscaReferencia;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
@@ -728,10 +757,10 @@ public class ConsultaDeProdutos extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextField jTextFieldBusca;
-    private javax.swing.JTextField jTextFieldBusca1;
-    private javax.swing.JTextField jTextFieldBusca2;
     private javax.swing.JTextField jTextFieldBusca3;
+    private javax.swing.JTextField jTextFieldBuscaCodebar;
+    private javax.swing.JTextField jTextFieldBuscaNome;
+    private javax.swing.JTextField jTextFieldBuscaReferencia;
     private javax.swing.JTextField jTextFieldCod;
     private javax.swing.JTextField jTextFieldCodBar;
     private javax.swing.JTextField jTextFieldCusto;
@@ -744,4 +773,5 @@ public class ConsultaDeProdutos extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldUnd;
     private javax.swing.JTable tabela;
     // End of variables declaration//GEN-END:variables
+
 }

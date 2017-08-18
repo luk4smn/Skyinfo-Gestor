@@ -104,9 +104,7 @@
                                           <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Component id="jTextFieldUnd" min="-2" pref="71" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jButton2" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                                           <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                           <Component id="jTextFieldPrecoVenda" min="-2" pref="116" max="-2" attributes="0"/>
@@ -144,7 +142,7 @@
                                   <EmptySpace min="-2" pref="316" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jButtonBuscaID" alignment="0" min="-2" pref="28" max="-2" attributes="0"/>
-                                      <Component id="jButtonBuscaNOME" alignment="0" min="-2" pref="28" max="-2" attributes="0"/>
+                                      <Component id="jButtonBuscaNome" alignment="0" min="-2" pref="28" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -154,19 +152,19 @@
                                   </Group>
                                   <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jTextFieldBusca" alignment="0" min="-2" pref="257" max="-2" attributes="0"/>
-                                      <Component id="jTextFieldBusca2" alignment="0" min="-2" pref="257" max="-2" attributes="0"/>
-                                      <Component id="jTextFieldBusca1" alignment="0" min="-2" pref="257" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldBuscaNome" alignment="0" min="-2" pref="257" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldBuscaCodebar" alignment="0" min="-2" pref="257" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldBuscaReferencia" alignment="0" min="-2" pref="257" max="-2" attributes="0"/>
                                       <Component id="jTextFieldBusca3" alignment="0" min="-2" pref="257" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jButtonBuscaCODEBAR" alignment="0" min="-2" pref="28" max="-2" attributes="0"/>
-                                      <Component id="jButtonBuscaREFERENCIA" alignment="0" min="-2" pref="28" max="-2" attributes="0"/>
+                                      <Component id="jButtonBuscaCodebar" alignment="0" min="-2" pref="28" max="-2" attributes="0"/>
+                                      <Component id="jButtonBuscaReferencia" alignment="0" min="-2" pref="28" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="410" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -185,24 +183,24 @@
                   <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                          <Component id="jTextFieldBusca" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldBuscaNome" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel18" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jButtonBuscaNOME" alignment="0" min="-2" pref="24" max="-2" attributes="0"/>
+                      <Component id="jButtonBuscaNome" alignment="0" min="-2" pref="24" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                          <Component id="jTextFieldBusca1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldBuscaReferencia" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel20" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jButtonBuscaREFERENCIA" alignment="0" min="-2" pref="24" max="-2" attributes="0"/>
+                      <Component id="jButtonBuscaReferencia" alignment="0" min="-2" pref="24" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jButtonBuscaCODEBAR" alignment="0" min="-2" pref="24" max="-2" attributes="0"/>
+                      <Component id="jButtonBuscaCodebar" alignment="0" min="-2" pref="24" max="-2" attributes="0"/>
                       <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                          <Component id="jTextFieldBusca2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldBuscaCodebar" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel21" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -249,10 +247,9 @@
                           <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jTextFieldUnd" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                           <Component id="jLabel19" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
@@ -264,7 +261,7 @@
                       </Group>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" pref="253" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" pref="254" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -289,9 +286,10 @@
             <Property name="text" type="java.lang.String" value="Buscar: (Nome Cont&#xea;m)"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldBusca">
+        <Component class="javax.swing.JTextField" name="jTextFieldBuscaNome">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldBuscaActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldBuscaNomeActionPerformed"/>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldBuscaNomeKeyPressed"/>
           </Events>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -408,7 +406,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="11" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Pre&#xe7;o de Venda"/>
+            <Property name="text" type="java.lang.String" value="Pre&#xe7;o de Venda (R$)"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldPrecoVenda">
@@ -424,9 +422,10 @@
             <Property name="text" type="java.lang.String" value="Buscar: (Referencia Cont&#xea;m)"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldBusca1">
+        <Component class="javax.swing.JTextField" name="jTextFieldBuscaReferencia">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldBusca1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldBuscaReferenciaActionPerformed"/>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldBuscaReferenciaKeyPressed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel21">
@@ -437,9 +436,10 @@
             <Property name="text" type="java.lang.String" value="Buscar: (C&#xf3;digo de Barras)"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldBusca2">
+        <Component class="javax.swing.JTextField" name="jTextFieldBuscaCodebar">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldBusca2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldBuscaCodebarActionPerformed"/>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldBuscaCodebarKeyPressed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JSeparator" name="jSeparator1">
@@ -457,6 +457,7 @@
         <Component class="javax.swing.JTextField" name="jTextFieldBusca3">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldBusca3ActionPerformed"/>
+            <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldBusca3KeyPressed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel8">
@@ -464,7 +465,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="11" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Custo"/>
+            <Property name="text" type="java.lang.String" value="Custo (R$)"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextFieldCusto">
@@ -507,34 +508,34 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonBuscaIDActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButtonBuscaNOME">
+        <Component class="javax.swing.JButton" name="jButtonBuscaNome">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Principal/Icones metro/search.png"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonBuscaNOMEActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonBuscaNomeActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButtonBuscaREFERENCIA">
+        <Component class="javax.swing.JButton" name="jButtonBuscaReferencia">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Principal/Icones metro/search.png"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonBuscaREFERENCIAActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonBuscaReferenciaActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButtonBuscaCODEBAR">
+        <Component class="javax.swing.JButton" name="jButtonBuscaCodebar">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Principal/Icones metro/search.png"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonBuscaCODEBARActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonBuscaCodebarActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonAtualizar">
@@ -552,14 +553,6 @@
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="+"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel10">
           <Properties>

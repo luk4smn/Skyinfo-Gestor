@@ -20,9 +20,11 @@ import Modelo.ModeloTabela;
  * @author Administrador
  */
 public class CadastroDeUnidades extends javax.swing.JFrame {
-Conectabanco conn = new Conectabanco();
-String cod;
-int flag=0;
+
+    Conectabanco conn = new Conectabanco();
+    String cod;
+    int flag = 0;
+
     /**
      * Creates new form FrmFormaDePag
      */
@@ -30,6 +32,9 @@ int flag=0;
         initComponents();
         jTextFieldUnidade.setDocument(new CaixaAlta());
         preencherTabela();
+        refreshButton.setEnabled(false);
+        saveButton.setEnabled(false);
+        deleteButton.setEnabled(false);
     }
 
     /**
@@ -178,49 +183,59 @@ int flag=0;
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         jTextFieldUnidade.setEditable(!true);
-        jTextFieldFator.setEditable(!true);  
-        String nome;
-        int fator;
-        nome = jTextFieldUnidade.getText();
-        fator = Integer.parseInt(jTextFieldFator.getText());
-        if(flag==1){
-            conn.conexao();
-            try {
-                PreparedStatement pst = conn.conn.prepareStatement("insert into unidades (unidade,fator)values(?,?)");
-                pst.setString(1,nome);
-                pst.setInt(2,fator);
-                pst.execute();
-                JOptionPane.showMessageDialog(null, "DADOS INSERIDOS!");
-            } catch (SQLException ex) {
-                Logger.getLogger(CadastroDeUnidades.class.getName()).log(Level.SEVERE, null, ex);
+        jTextFieldFator.setEditable(!true);
+        try {
+            String nome;
+            int fator;
+            nome = jTextFieldUnidade.getText();
+            fator = Integer.parseInt(jTextFieldFator.getText());
+
+            if (flag == 1) {
+                conn.conexao();
+                try {
+                    PreparedStatement pst = conn.conn.prepareStatement("insert into unidades (unidade,fator)values(?,?)");
+                    pst.setString(1, nome);
+                    pst.setInt(2, fator);
+                    pst.execute();
+                    JOptionPane.showMessageDialog(null, "DADOS INSERIDOS!");
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(rootPane, "ERRO AO INSERIR DADOS\n" + ex);
+                }
+                preencherTabela();
+                conn.desconecta();
+            } else {
+                conn.conexao();
+                try {
+                    PreparedStatement pst = conn.conn.prepareStatement("update unidades set unidade=?,fator=? where id_unidade=?");
+                    pst.setString(1, nome);
+                    pst.setInt(2, fator);
+                    pst.setInt(3, Integer.parseInt(cod));
+
+                    pst.execute();
+                    JOptionPane.showMessageDialog(null, "DADOS ALTERADOS!");
+                } catch (SQLException ex) {
+                    JOptionPane.showMessageDialog(rootPane, "ERRO AO ALTERAR DADOS\n" + ex);
+                }
+                preencherTabela();
+                conn.desconecta();
             }
-           preencherTabela();
-           conn.desconecta();
-        }else{
-            conn.conexao();
-            try {
-                PreparedStatement pst = conn.conn.prepareStatement("update unidades set unidade=?,fator=? where id_unidade=?");
-                pst.setString(1,nome);
-                pst.setInt(2,fator);
-                pst.setInt(3,Integer.parseInt(cod));
-                
-                
-                pst.execute();
-                JOptionPane.showMessageDialog(null, "DADOS ALTERADOS!");
-            } catch (SQLException ex) {
-                Logger.getLogger(CadastroDeUnidades.class.getName()).log(Level.SEVERE, null, ex);
-            }
-           preencherTabela();
-           conn.desconecta();
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(rootPane, "INSIRA AS INFORMAÇÕES CORRETAMENTE\n" + ex);
         }
-        
-        
+        jTextFieldUnidade.setText("");
+        jTextFieldFator.setText("");
+        saveButton.setEnabled(false);
+        refreshButton.setEnabled(false);
+
     }//GEN-LAST:event_saveButtonActionPerformed
 
     private void refreshButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshButtonActionPerformed
+        newButton.setEnabled(true);
+        saveButton.setEnabled(true);
+        deleteButton.setEnabled(false);
         jTextFieldUnidade.setEditable(true);
-        jTextFieldFator.setEditable(true);    
-        flag=2;
+        jTextFieldFator.setEditable(true);
+        flag = 2;
     }//GEN-LAST:event_refreshButtonActionPerformed
 
     private void newButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newButtonActionPerformed
@@ -228,59 +243,70 @@ int flag=0;
         jTextFieldFator.setText("");
         jTextFieldUnidade.setEditable(true);
         jTextFieldFator.setEditable(true);
-        flag=1;
-        cod=("");
+        saveButton.setEnabled(true);
+        refreshButton.setEnabled(!true);
+        deleteButton.setEnabled(!true);
+        flag = 1;
+        cod = ("");
     }//GEN-LAST:event_newButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         conn.conexao();
-        conn.executaSQL("delete from unidades where id_unidade = "+cod );
+        conn.executaSQL("delete from unidades where id_unidade = " + cod);
         JOptionPane.showMessageDialog(null, "DADOS EXCLUIDOS!");
         preencherTabela();
-         jTextFieldUnidade.setEditable(!true);
+        jTextFieldUnidade.setEditable(!true);
         jTextFieldFator.setEditable(!true);
         jTextFieldUnidade.setText("");
         jTextFieldFator.setText("");
+        refreshButton.setEnabled(false);
+        saveButton.setEnabled(false);
+        deleteButton.setEnabled(false);
+
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void masterTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_masterTableMouseClicked
-        cod =""+ masterTable.getValueAt(masterTable.getSelectedRow(),0);
+        refreshButton.setEnabled(true);
+        saveButton.setEnabled(false);
+        deleteButton.setEnabled(true);
+        cod = "" + masterTable.getValueAt(masterTable.getSelectedRow(), 0);
         conn.conexao();
-    try {
-        conn.executaSQL("select * from unidades where id_unidade = "+cod );
-        conn.rs.first();
-        jTextFieldUnidade.setText(conn.rs.getString("unidade"));
-        jTextFieldFator.setText(conn.rs.getString("fator"));
-        conn.desconecta();
-        
-    } catch (SQLException ex) {
-        Logger.getLogger(ConsultaDeCompras.class.getName()).log(Level.SEVERE, null, ex);
-    }
+        try {
+            conn.executaSQL("select * from unidades where id_unidade = " + cod);
+            conn.rs.first();
+            jTextFieldUnidade.setText(conn.rs.getString("unidade"));
+            jTextFieldFator.setText(conn.rs.getString("fator"));
+            conn.desconecta();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ConsultaDeCompras.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_masterTableMouseClicked
 
-    public void preencherTabela(){
-    ArrayList dados = new ArrayList ();
-    String [] Colunas = new String[]{"ID","Unidade","Fator"};
-    conn.conexao();
-    conn.executaSQL("select * from unidades order by id_unidade");
-   try {
-        conn.rs.first();
-        do{
-          dados.add(new Object[]{ conn.rs.getString("id_unidade"),conn.rs.getString("unidade"),conn.rs.getString("fator")});
-          }while(conn.rs.next());
-        } catch (SQLException ex){
+    public final void preencherTabela() {
+        ArrayList dados = new ArrayList();
+        String[] Colunas = new String[]{"ID", "Unidade", "Fator"};
+        conn.conexao();
+        conn.executaSQL("select * from unidades order by id_unidade");
+        try {
+            conn.rs.first();
+            do {
+                dados.add(new Object[]{conn.rs.getString("id_unidade"), conn.rs.getString("unidade"), conn.rs.getString("fator")});
+            } while (conn.rs.next());
+        } catch (SQLException ex) {
         }
-   ModeloTabela modelo = new ModeloTabela(dados,Colunas);
-       
-   masterTable.setModel(modelo);
-   masterTable.getColumnModel().getColumn(0).setPreferredWidth(100);
-   masterTable.getColumnModel().getColumn(0).setResizable(!false);
-   masterTable.getColumnModel().getColumn(1).setPreferredWidth(350);
-   masterTable.getColumnModel().getColumn(1).setResizable(true);
-   masterTable.getColumnModel().getColumn(2).setPreferredWidth(130);
-   masterTable.getColumnModel().getColumn(2).setResizable(!false);
-    
+        ModeloTabela modelo = new ModeloTabela(dados, Colunas);
+
+        masterTable.setModel(modelo);
+        masterTable.getColumnModel().getColumn(0).setPreferredWidth(100);
+        masterTable.getColumnModel().getColumn(0).setResizable(!false);
+        masterTable.getColumnModel().getColumn(1).setPreferredWidth(350);
+        masterTable.getColumnModel().getColumn(1).setResizable(true);
+        masterTable.getColumnModel().getColumn(2).setPreferredWidth(130);
+        masterTable.getColumnModel().getColumn(2).setResizable(!false);
+
     }
+
     /**
      * @param args the command line arguments
      */
