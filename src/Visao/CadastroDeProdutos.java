@@ -564,21 +564,24 @@ public class CadastroDeProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldCodBarActionPerformed
 
     private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
-        mod.setId(Integer.parseInt(jTextFieldCod.getText()));
-        mod.setNome(jTextFieldNome.getText());
-        mod.setPrecocompra(Float.parseFloat(jTextFieldCusto1.getText()));
-        mod.setPrecovenda((Float.parseFloat(jTextFieldPrecovenda.getText())));
-        mod.setFornecedor((String) jComboBoxForn.getSelectedItem());
-        mod.setQuantidade(Integer.parseInt(jTextFieldQTD.getText()));
-        mod.setCodebar(jTextFieldCodBar.getText());
-        mod.setNcm(jTextFieldNCM.getText());
-        mod.setReferencia(jTextFieldRef.getText());
+         switch (JOptionPane.showConfirmDialog(null, "DESEJA EXCLUIR ESSE PRODUTO ?  ")) {
+            case 0:
+                mod.setId(Integer.parseInt(jTextFieldCod.getText()));
+                mod.setNome(jTextFieldNome.getText());
+                mod.setPrecocompra(Float.parseFloat(jTextFieldCusto1.getText()));
+                mod.setPrecovenda((Float.parseFloat(jTextFieldPrecovenda.getText())));
+                mod.setFornecedor((String) jComboBoxForn.getSelectedItem());
+                mod.setQuantidade(Integer.parseInt(jTextFieldQTD.getText()));
+                mod.setCodebar(jTextFieldCodBar.getText());
+                mod.setNcm(jTextFieldNCM.getText());
+                mod.setReferencia(jTextFieldRef.getText());
 
-        control.excluir(mod);
-
-        preencherCombobox();
-        jButtonCancelarActionPerformed(evt);
-        flag = 1;
+                control.excluir(mod);
+                preencherCombobox();
+                jButtonCancelarActionPerformed(evt);
+                flag = 1;
+                break;
+        }
     }//GEN-LAST:event_jButtonExcluirActionPerformed
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
@@ -662,7 +665,7 @@ public class CadastroDeProdutos extends javax.swing.JFrame {
                         mod.setUnidade((String) jComboBoxUnd.getSelectedItem());
 
                         control.salvar(mod);
-                        jButtonCancelarActionPerformed(evt);
+                        dispose();
 
                     } else {
                         JOptionPane.showMessageDialog(rootPane, "Preço de Custo não pode ser maior que o Preço de  Venda !!\nRefaça a operação!");
@@ -703,7 +706,7 @@ public class CadastroDeProdutos extends javax.swing.JFrame {
                         mod.setUnidade((String) jComboBoxUnd.getSelectedItem());
 
                         control.alterar(mod);
-                        jButtonCancelarActionPerformed(evt);
+                        dispose();
                     } else {
                         JOptionPane.showMessageDialog(rootPane, "Preço de Custo não pode ser maior que o Preço de  Venda !!\nRefaça a operação!");
                     }
@@ -714,6 +717,7 @@ public class CadastroDeProdutos extends javax.swing.JFrame {
                 }
             }
         }
+        
     }//GEN-LAST:event_jButtonSalvarActionPerformed
 
     private void jButtonAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarActionPerformed

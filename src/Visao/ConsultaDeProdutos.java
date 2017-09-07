@@ -612,11 +612,12 @@ public class ConsultaDeProdutos extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldCodBarActionPerformed
 
     private void tabelaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaMouseClicked
-        String nome_produto = "" + tabela.getValueAt(tabela.getSelectedRow(), 1);
+        int id_produto = Integer.parseInt((String) tabela.getValueAt(tabela.getSelectedRow(),0));
         conn.conexao();
-        connForn.conexao();
-        connUnd.conexao();
-        conn.executaSQL("select * from produto where nome_produto='" + nome_produto + "'");
+        conn.executaSQL("select * from produto "
+                + "inner join fornecedores on fornecedores.id_fornecedor = produto.id_fornecedor "
+                + "inner join unidades on unidades.id_unidade = produto.id_unidade "
+                + "where id_produto= "+id_produto);
         try {
             conn.rs.first();
             jTextFieldCod.setText(String.valueOf(conn.rs.getInt("id_produto")));
@@ -630,23 +631,14 @@ public class ConsultaDeProdutos extends javax.swing.JFrame {
             jTextFieldCaminhoImg.setText(conn.rs.getString("imagem"));
             ImageIcon logo = new ImageIcon(jTextFieldCaminhoImg.getText());
             jLabelImg.setIcon(logo);
-
-            connForn.executaSQL("select * from fornecedores where id_fornecedor=" + conn.rs.getInt("id_fornecedor"));
-            connForn.rs.first();
-            jTextFieldForn.setText(connForn.rs.getString("nome_fornecedor"));
-
-            connUnd.executaSQL("select * from unidades where id_unidade=" + conn.rs.getInt("id_unidade"));
-            connUnd.rs.first();
-            jTextFieldUnd.setText(connUnd.rs.getString("unidade"));
-
+            jTextFieldForn.setText(conn.rs.getString("nome_fornecedor"));
+            jTextFieldUnd.setText(conn.rs.getString("unidade"));
+            
             jButtonAlterarCadastro.setEnabled(true);
-
-            connForn.desconecta();
-            connUnd.desconecta();
-            conn.desconecta();
         } catch (SQLException ex) {
             Logger.getLogger(ConsultaDeProdutos.class.getName()).log(Level.SEVERE, null, ex);
         }
+        conn.desconecta();
 
     }//GEN-LAST:event_tabelaMouseClicked
 

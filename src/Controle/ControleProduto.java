@@ -137,7 +137,7 @@ public class ControleProduto {
     public ModeloProduto buscaIdCadastro(ModeloProduto modelo) {
         conexao.conexao();
         conexao.executaSQL("select * from produto inner join fornecedores on produto.id_fornecedor=fornecedores.id_fornecedor "
-                + "inner join unidades on produto.id_unidade = unidades.id_unidade where id_produto ::text like '%" + modelo.getPesquisa() + "'");
+                + "inner join unidades on produto.id_unidade = unidades.id_unidade where id_produto ::text like '"+ modelo.getPesquisa() +"'");
         try {
 
             conexao.rs.first();
@@ -154,7 +154,7 @@ public class ControleProduto {
             mod.setUnidade(conexao.rs.getString("unidade"));
 
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "A BUSCA NÃO RETORNOU RESULTADOS !");
+           
         }
         conexao.desconecta();
         return mod;
