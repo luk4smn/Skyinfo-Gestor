@@ -43,6 +43,7 @@ import Visao.Ultilitarios.GeraParcelasVenda;
  */
 public class ModuloDeVendas extends javax.swing.JFrame {
 
+    java.awt.event.ActionEvent evt2;
     Conectabanco conn = new Conectabanco();
     ModeloVenda mod = new ModeloVenda();
     ModeloClientes modCli = new ModeloClientes();
@@ -150,10 +151,9 @@ public class ModuloDeVendas extends javax.swing.JFrame {
         setTitle("Módulo de Vendas");
         setFocusCycleRoot(false);
         setIconImage(new javax.swing.ImageIcon(getClass().getResource("/Principal/Imagens/icone.png")).getImage());
-        getContentPane().setLayout(new java.awt.BorderLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Vendas", 0, 0, new java.awt.Font("Calibri Light", 0, 36))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Vendas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Calibri Light", 0, 36))); // NOI18N
         jPanel1.setToolTipText("");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -323,7 +323,6 @@ public class ModuloDeVendas extends javax.swing.JFrame {
         jLabel21.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel21.setText("BUSCAR POR: ");
 
-        jCheckBox1.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBox1.setText("ID");
         jCheckBox1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -336,7 +335,6 @@ public class ModuloDeVendas extends javax.swing.JFrame {
             }
         });
 
-        jCheckBox4.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBox4.setText("Descrição");
         jCheckBox4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -344,7 +342,6 @@ public class ModuloDeVendas extends javax.swing.JFrame {
             }
         });
 
-        jCheckBox3.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBox3.setText("Ref.");
         jCheckBox3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -352,7 +349,6 @@ public class ModuloDeVendas extends javax.swing.JFrame {
             }
         });
 
-        jCheckBox2.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBox2.setText("Cód. de Barras");
         jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -366,6 +362,11 @@ public class ModuloDeVendas extends javax.swing.JFrame {
         jTextFieldProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldProdutoActionPerformed(evt);
+            }
+        });
+        jTextFieldProduto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextFieldProdutoKeyPressed(evt);
             }
         });
 
@@ -450,7 +451,6 @@ public class ModuloDeVendas extends javax.swing.JFrame {
             }
         });
 
-        jRadioButtonNome.setBackground(new java.awt.Color(255, 255, 255));
         jRadioButtonNome.setText("Nome");
         jRadioButtonNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -458,7 +458,6 @@ public class ModuloDeVendas extends javax.swing.JFrame {
             }
         });
 
-        jRadioButtonCnpj.setBackground(new java.awt.Color(255, 255, 255));
         jRadioButtonCnpj.setText("CNPJ");
         jRadioButtonCnpj.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -507,7 +506,7 @@ public class ModuloDeVendas extends javax.swing.JFrame {
         );
 
         jPanel2.setBackground(new java.awt.Color(51, 51, 51));
-        jPanel2.setBorder(new javax.swing.border.SoftBevelBorder(0));
+        jPanel2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         jLabel27.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel27.setForeground(new java.awt.Color(255, 255, 255));
@@ -629,7 +628,7 @@ public class ModuloDeVendas extends javax.swing.JFrame {
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldPrecoVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextFieldPrecoVendaParcial, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1065,9 +1064,9 @@ public class ModuloDeVendas extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldMarkupFocusLost
 
     private void jButtonDescontoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDescontoActionPerformed
-        int compara = Integer.parseInt(jTextFieldMarkup.getText());
-        desconto = (Float.parseFloat(jTextFieldMarkup.getText()) / 100);
-        if (compara >= 1) {
+        float compara = Float.parseFloat(jTextFieldMarkup.getText());
+        desconto = (compara/100);
+        if (compara >= 1 &&  compara<100) {
             total = total - (total * desconto);
             DecimalFormat fm = new DecimalFormat("0.00");
             jTextFieldTotal.setText(fm.format(total));
@@ -1326,6 +1325,12 @@ public class ModuloDeVendas extends javax.swing.JFrame {
     private void jTextFieldTotalFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldTotalFocusGained
 
     }//GEN-LAST:event_jTextFieldTotalFocusGained
+
+    private void jTextFieldProdutoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldProdutoKeyPressed
+       if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            jButtonBuscaProdutoActionPerformed(evt2);
+        }
+    }//GEN-LAST:event_jTextFieldProdutoKeyPressed
 
     public void preencherTabelaPesquisa(String SQL) {
         ArrayList dados = new ArrayList();

@@ -522,9 +522,6 @@
             </Component>
             <Component class="javax.swing.JCheckBox" name="jCheckBox1">
               <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="ID"/>
               </Properties>
               <Events>
@@ -534,9 +531,6 @@
             </Component>
             <Component class="javax.swing.JCheckBox" name="jCheckBox4">
               <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Descri&#xe7;&#xe3;o"/>
               </Properties>
               <Events>
@@ -545,9 +539,6 @@
             </Component>
             <Component class="javax.swing.JCheckBox" name="jCheckBox3">
               <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Ref."/>
               </Properties>
               <Events>
@@ -556,9 +547,6 @@
             </Component>
             <Component class="javax.swing.JCheckBox" name="jCheckBox2">
               <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="C&#xf3;d. de Barras"/>
               </Properties>
               <Events>
@@ -576,6 +564,7 @@
             <Component class="javax.swing.JTextField" name="jTextFieldProduto">
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldProdutoActionPerformed"/>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldProdutoKeyPressed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButtonBuscaProduto">
@@ -698,9 +687,6 @@
             </Component>
             <Component class="javax.swing.JRadioButton" name="jRadioButtonNome">
               <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Nome"/>
               </Properties>
               <Events>
@@ -709,9 +695,6 @@
             </Component>
             <Component class="javax.swing.JRadioButton" name="jRadioButtonCnpj">
               <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="CNPJ"/>
               </Properties>
               <Events>
@@ -780,7 +763,7 @@
                       <Component id="jLabel9" min="-2" pref="18" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jTextFieldPrecoVenda" min="-2" pref="33" max="-2" attributes="0"/>
-                      <EmptySpace pref="23" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jTextFieldPrecoVendaParcial" min="-2" pref="36" max="-2" attributes="0"/>
